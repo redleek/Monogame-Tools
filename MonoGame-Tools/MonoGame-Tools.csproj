@@ -42,10 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
-    <Compile Include="GameObject.cs" />
-    <Compile Include="IMap.cs" />
-    <Compile Include="Map2D.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Fundamental\GameObject.cs" />
+    <Compile Include="MapTools\IMap.cs" />
+    <Compile Include="MapTools\Map2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripting\Entitiy.cs" />
     <Compile Include="Scripting\Item.cs" />
