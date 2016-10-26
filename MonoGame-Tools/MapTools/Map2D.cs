@@ -17,13 +17,13 @@ namespace MonoGame_Tools.MapTools
     {
         private string m_name;
         private uint m_tileWidth, m_tile_height;
-        private IDictionary<Vector3, GameObject> m_tiles;
+        private IDictionary<Vector3, Tile2D> m_tiles;
 
         public Map2D(ContentManager p_cm, string p_mapFile)
         { loadMap(p_cm, p_mapFile); }
 
         public Map2D()
-        { m_tiles = new Dictionary<Vector3, GameObject>(); }
+        { m_tiles = new Dictionary<Vector3, Tile2D>(); }
 
         /// <summary>
         /// Name of map.
@@ -69,7 +69,7 @@ namespace MonoGame_Tools.MapTools
             XmlDocument xmlDoc = null;
             try
             {
-                m_tiles = new Dictionary<Vector3, GameObject>();
+                m_tiles = new Dictionary<Vector3, Tile2D>();
                 xmlDoc = new XmlDocument();
                 string path = string.Format(
                     "{0}/{1}{2}", p_cm.RootDirectory, p_mapFile.Trim(), xmlExtension
@@ -100,7 +100,7 @@ namespace MonoGame_Tools.MapTools
         /// <param name="p_sb"></param>
         public void Draw(SpriteBatch p_sb)
         {
-            foreach (GameObject tile in m_tiles.Values)
+            foreach (Tile2D tile in m_tiles.Values)
                 tile.Draw(p_sb);
         }
 
@@ -109,7 +109,7 @@ namespace MonoGame_Tools.MapTools
         /// </summary>
         public void drawDomain(SpriteBatch p_sb, object p_domain)
         {
-            foreach (GameObject tile in getDomain(p_domain))
+            foreach (Tile2D tile in getDomain(p_domain))
                 tile.Draw(p_sb);
         }
     }
