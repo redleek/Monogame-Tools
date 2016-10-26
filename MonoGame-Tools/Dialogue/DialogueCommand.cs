@@ -7,17 +7,27 @@ using System.Xml;
 
 namespace MonoGame_Tools.Dialogue
 {
+    /// <summary>
+    /// Represents a Lua condition + command that is used when a dialog choice is excepted
+    /// </summary>
     public class DialogueCommand
     {
         string m_command;
         string m_condition;
 
+
+        /// <summary>
+        /// Gets or sets the Lua command that this command uses. If this is empty, then this command will not be written to XML
+        /// </summary>
         public string Command
         {
             get { return m_command; }
             set { m_command = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the Lua condition to check when trying to invoke this command
+        /// </summary>
         public string Condition
         {
             get { return m_condition; }
@@ -34,29 +44,50 @@ namespace MonoGame_Tools.Dialogue
             }
         }
 
+        /// <summary>
+        /// Creates a new empty dialog command
+        /// </summary>
         public DialogueCommand()
         {
             m_command = "";
             m_condition = "true";
         }
 
+        /// <summary>
+        /// Creates a new Dialog Command with no condition
+        /// </summary>
+        /// <param name="command">The Lua command to use when invoked</param>
         public DialogueCommand(string command)
         {
             Command = command;
             m_condition = "true";
         }
 
+        /// <summary>
+        /// Creates a new Dialog Command with the given command and condition
+        /// </summary>
+        /// <param name="command">The Lua command to use when invoked</param>
+        /// <param name="condition">The Lua condition to check before invoking</param>
         public DialogueCommand(string command, string condition)
         {
             Command = command;
             Condition = condition;
         }
 
+        /// <summary>
+        /// Checks if the conditions are met to run this command
+        /// </summary>
+        /// <param name="context">The Lua context to run the command with</param>
+        /// <returns>True if the command's conditions are met, otherwise false</returns>
         public bool ConditionsMet(LuaContext context)
         {
             return (bool)context.DoString("return " + m_condition)[0];
         }
 
+        /// <summary>
+        /// Performs this dialog command if the condition is met
+        /// </summary>
+        /// <param name="context">The Lua context to use for performing this command</param>
         public void Perform(LuaContext context)
         {
             if (ConditionsMet(context))
@@ -65,6 +96,10 @@ namespace MonoGame_Tools.Dialogue
             }
         }
 
+        /// <summary>
+        /// Writes this command to an XML stream
+        /// </summary>
+        /// <param name="writer">The XML writer to write to</param>
         public void WriteToXML(XmlWriter writer)
         {
             // Only save this thing if there is actually a command to be excecuted
@@ -85,6 +120,11 @@ namespace MonoGame_Tools.Dialogue
             }
         }
 
+        /// <summary>
+        /// Reads a DialogCommand from an XML node
+        /// </summary>
+        /// <param name="node">The node to read from</param>
+        /// <returns>A DialogCommand read from the node</returns>
         public static DialogueCommand ReadFromXML(XmlNode node)
         {
             // Define a new command to return the result in
@@ -102,6 +142,10 @@ namespace MonoGame_Tools.Dialogue
 
         }
 
+        /// <summary>
+        /// Creates a human-readable string representation of this Dialog command
+        /// </summary>
+        /// <returns>A string representation of this instance</returns>
         public override string ToString()
         {
             return m_command + (m_condition != "true" ? " if " + m_condition : "");

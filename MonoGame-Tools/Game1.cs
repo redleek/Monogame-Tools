@@ -107,11 +107,11 @@ namespace MonoGame_Tools
 
 
 
-            //if (keyState.IsKeyDown(Keys.Space) && prevState.IsKeyUp(Keys.Space))
-            //{
-            //    scene.MoveNext();
-                
-            //}
+            if (keyState.IsKeyDown(Keys.Space) && prevState.IsKeyUp(Keys.Space))
+            {
+                scene.MoveNext();
+
+            }
 
             MouseState state = Mouse.GetState();
 

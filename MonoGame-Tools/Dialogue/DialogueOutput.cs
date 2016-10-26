@@ -22,11 +22,17 @@ namespace MonoGame_Tools.Dialogue
         List<int> m_choices;
         TextureChangeCollection m_textureChanges;
 
+        /// <summary>
+        /// Gets all choices for this dialog output
+        /// </summary>
         public int[] ChoicesIndices
         {
             get { return m_choices.ToArray(); }
         }
 
+        /// <summary>
+        /// Gets or sets the message for this dialog output
+        /// </summary>
         public string Message
         {
             get
@@ -42,18 +48,28 @@ namespace MonoGame_Tools.Dialogue
             }
         }
 
+        /// <summary>
+        /// Gets or sets the ID of this dialog output
+        /// </summary>
         public int Id
         {
             get { return m_id; }
             set { m_id = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the ID of the next dialog option to go to
+        /// This will be used if there are no available choices
+        /// </summary>
         public int NextId
         {
             get { return m_nextId; }
             set { m_nextId = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the index of the active speaker for this dialogue
+        /// </summary>
         public int ActiveSpeaker
         {
             get { return m_activeSpeaker; }
@@ -84,6 +100,10 @@ namespace MonoGame_Tools.Dialogue
             m_message = string.Format(MISSING_MESSAGE, m_id);
         }
 
+        /// <summary>
+        /// Writes this Dialog Option to an XML stream
+        /// </summary>
+        /// <param name="writer">The XML writer to write to</param>
         public void WriteToXML(XmlWriter writer, bool writeEditor = true)
         {
             // Starts this element
@@ -140,6 +160,11 @@ namespace MonoGame_Tools.Dialogue
             writer.WriteEndElement();                                       // </dialog>
         }
 
+        /// <summary>
+        /// Reads a DialogOption from an XML node
+        /// </summary>
+        /// <param name="node">The node to read from</param>
+        /// <returns>A DialogOption read from the node</returns>
         public static DialogueOutput ReadFromXML(XmlNode node)
         {
             // Throw an exception if the ID is not defined

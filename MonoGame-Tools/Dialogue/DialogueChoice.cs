@@ -8,6 +8,9 @@ using System.Xml;
 
 namespace MonoGame_Tools.Dialogue
 {
+    /// <summary>
+    /// Represents a choice in a branching dialog tree - Matthew
+    /// </summary>
     public class DialogueChoice : IEquatable<DialogueChoice>
     {
         const string DEFAULT_MESSAGE = "RESPONSE NOT FOUND";
@@ -19,18 +22,27 @@ namespace MonoGame_Tools.Dialogue
 
         public List<DialogueCommand> m_commands;
 
+        /// <summary>
+        /// Gets or sets the ID for this choice - Matthew
+        /// </summary>
         public int Id
         {
             get { return m_id; }
             set { m_id = value;}
         }
 
+        /// <summary>
+        /// Gets or sets the ID of the dialog option that this choice points to - Matthew [-1 is the end of the dialogue tree this should always kill.]
+        /// </summary>
         public int NextId
         {
             get { return m_nextId; }
             set { m_nextId = value;}
         }
 
+        /// <summary>
+        /// Creates a new empty Dialog option
+        /// </summary>
         public DialogueChoice()
         {
             m_commands = new List<DialogueCommand>();
@@ -45,11 +57,21 @@ namespace MonoGame_Tools.Dialogue
             m_message = message;
         }
 
+        /// <summary>
+        /// Checks if this choice's conditions are met - Matthew
+        /// </summary>
+        /// <param name="context">The Lua context to use for checking conditions</param>
+        /// <returns>True if the choice's conditions are met, otherwise false</returns>
         public bool IsAvailable(LuaContext context)
         {
             return (bool)context.DoString(string.Format("return {0}", m_condition))[0];
         }
 
+
+        /// <summary>
+        /// Performs the actions tied to this choice if the choice is available
+        /// </summary>
+        /// <param name="context">The Lua context to use for excecuting commands</param>
         public void PerformCommands(LuaContext context)
         {
             if (IsAvailable(context))
@@ -61,6 +83,10 @@ namespace MonoGame_Tools.Dialogue
             }
         }
 
+        /// <summary>
+        /// Writes this choice to an XML stream
+        /// </summary>
+        /// <param name="writer">The XML writer to write to</param>
         public void WriteToXML(XmlWriter writer, bool writeEditor = true)
         {
             writer.WriteStartElement("choice"); // <choice
@@ -94,6 +120,11 @@ namespace MonoGame_Tools.Dialogue
             writer.WriteEndElement(); // </choice>
         }
 
+        /// <summary>
+        /// Reads a DialogChoice from an XML node
+        /// </summary>
+        /// <param name="node">The node to read from</param>
+        /// <returns>A DialogChoice read from the node</returns>
         public static DialogueChoice ReadFromXML(XmlNode node)
         {
             DialogueChoice choice = new DialogueChoice();
