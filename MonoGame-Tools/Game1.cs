@@ -13,7 +13,7 @@ namespace MonoGame_Tools
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        GameObject person;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -29,7 +29,6 @@ namespace MonoGame_Tools
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 

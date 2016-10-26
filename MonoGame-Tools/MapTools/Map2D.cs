@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame_Tools
 {
@@ -37,6 +38,11 @@ namespace MonoGame_Tools
             catch (Exception e)
             { }
             
+        }
+
+        public void Draw(SpriteBatch p_sb)
+        {
+            throw new NotImplementedException();
         }
     }
 }
