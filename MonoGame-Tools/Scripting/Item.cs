@@ -56,15 +56,6 @@ namespace MonoGame_Tools.Scripting
         }
 
         /// <summary>
-        /// Get or sets the items unique internal name - Matthew
-        /// </summary>
-        public string internalName
-        {
-            get { return myInternalName; }
-            set { myInternalName = value; }
-        }
-
-        /// <summary>
         /// Gets or sets the lua script to be called when the item is used - Matthew
         /// </summary>
         public string usedScript
@@ -80,6 +71,15 @@ namespace MonoGame_Tools.Scripting
         {
             get { return myPickedUpScript; }
             set { myPickedUpScript = value; }
+        }
+
+        /// <summary>
+        /// Get or sets the items unique internal name - Matthew
+        /// </summary>
+        public string internalName
+        {
+            get { return myInternalName; }
+            set { myInternalName = value; }
         }
 
         /// <summary>
