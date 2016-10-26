@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonogameMapEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Monogame Map Editor" Height="670" Width="1200"
+        ResizeMode="CanMinimize">
     <Grid>
-        
+        <Canvas x:Name="map" SnapsToDevicePixels="False" Height="100" Width="200" MouseLeftButtonDown="OnMouseLeftButtonDown"/>
+        <StackPanel Margin="10,557,1022,33" Orientation="Vertical">
+            <Button Name="LoadButton">Load Map</Button>
+            <Button Name="SaveButton">Save Map</Button>
+        </StackPanel>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,608,0,0" TextWrapping="Wrap" Text="Current file:" VerticalAlignment="Top" Width="162" BorderThickness="0"/>
     </Grid>
 </Window>
