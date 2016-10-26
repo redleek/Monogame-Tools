@@ -15,7 +15,7 @@ namespace MonoGame_Tools.Scripting
             string message = text;
 
             // Get the regex matches for %xxx%
-            MatchCollection matches = Regex.Matches(message, @"[&^\\]%([^%]*)%");
+            MatchCollection matches = Regex.Matches(message, @"[^\\]%([^%]*)%");
 
             foreach (Match command in matches)
             {
