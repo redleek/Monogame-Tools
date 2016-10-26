@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame_Tools.MapTools
@@ -17,8 +19,8 @@ namespace MonoGame_Tools.MapTools
         private uint m_tileWidth, m_tile_height;
         private IDictionary<Vector2, GameObject> m_tiles;
 
-        public Map2D(string p_mapFile)
-        { loadMap(p_mapFile); }
+        public Map2D(ContentManager p_cm, string p_mapFile)
+        { loadMap(p_cm, p_mapFile); }
 
         public Map2D()
         { m_tiles = new Dictionary<Vector2, GameObject>(); }
@@ -58,14 +60,37 @@ namespace MonoGame_Tools.MapTools
         /// </summary>
         /// <param name="p_mapFile">Name and/or directory of map.</param>
         /// <returns>Did map successfully load?</returns>
-        public bool loadMap(string p_mapFile)
+        public bool loadMap(ContentManager p_cm, string p_mapFile)
         {
             throw new NotImplementedException();
-            m_tiles = new Dictionary<Vector2, GameObject>();
+            bool success = true;
+
+            const string xmlExtension = ".xml";
+            XmlDocument xmlDoc = null;
             try
-            { }
+            {
+                m_tiles = new Dictionary<Vector2, GameObject>();
+                xmlDoc = new XmlDocument();
+                string path = string.Format(
+                    "{0}/{1}{2}", p_cm.RootDirectory, p_mapFile.Trim(), xmlExtension
+                    );
+                xmlDoc.Load(path);
+                XmlLoad(xmlDoc);
+            }
             catch (Exception e)
-            { }
+            {
+                Console.WriteLine(e.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// Extract information from 
+        /// </summary>
+        /// <param name="p_doc"></param>
+        private void XmlLoad(XmlDocument p_doc)
+        {
 
         }
 
