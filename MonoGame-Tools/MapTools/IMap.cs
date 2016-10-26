@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MonoGame_Tools
+namespace MonoGame_Tools.MapTools
 {
     public interface IMap
     {

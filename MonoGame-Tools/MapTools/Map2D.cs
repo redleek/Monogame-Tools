@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MonoGame_Tools
+namespace MonoGame_Tools.MapTools
 {
     /// <summary>
     /// Map class for storing a map layout.
