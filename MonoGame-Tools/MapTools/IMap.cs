@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame_Tools
 {
-    interface IMap
+    public interface IMap
     {
         bool loadMap(string p_mapFile);
-        IEnumerable<GameObject> getDomain(Vector2 p_domain);
+        string Name
+        { get; }
+        IEnumerable<GameObject> getDomain(object p_domain);
+        void Draw(SpriteBatch p_sb);
+        void drawDomain(SpriteBatch p_sb, object p_domain);
     }
 }

@@ -42,6 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="MapTools\IMapWindow.cs" />
+    <Compile Include="MapTools\MapWindow2D.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Fundamental\GameObject.cs" />
     <Compile Include="MapTools\IMap.cs" />

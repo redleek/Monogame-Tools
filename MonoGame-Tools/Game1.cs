@@ -13,7 +13,7 @@ namespace MonoGame_Tools
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        GameObject person;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
