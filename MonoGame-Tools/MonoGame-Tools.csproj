@@ -53,6 +53,7 @@
     <Compile Include="Scripting\Items.cs" />
     <Compile Include="Scripting\NPC.cs" />
     <Compile Include="Scripting\ScriptingTools.cs" />
+    <Compile Include="Utils\AttributeCollection.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Scripting\LuaContext.cs" />
   </ItemGroup>

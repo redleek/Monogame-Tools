@@ -24,7 +24,7 @@ namespace MonoGame_Tools.Scripting
 
         public void GiveItem(string name, int quantity = 1)
         {
-            myItems.AddItem(Item.GetItem(name), quantity);
+            myItems.AddItem(Items.GetItem(name), quantity);
         }
     }
 }
