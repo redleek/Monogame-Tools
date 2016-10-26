@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -63,7 +65,6 @@ namespace MonoGame_Tools
                 Exit();
 
             // TODO: Add your update logic here
-
             base.Update(gameTime);
         }
 
