@@ -17,13 +17,13 @@ namespace MonoGame_Tools.MapTools
     {
         private string m_name;
         private uint m_tileWidth, m_tile_height;
-        private IDictionary<Vector2, GameObject> m_tiles;
+        private IDictionary<Vector3, GameObject> m_tiles;
 
         public Map2D(ContentManager p_cm, string p_mapFile)
         { loadMap(p_cm, p_mapFile); }
 
         public Map2D()
-        { m_tiles = new Dictionary<Vector2, GameObject>(); }
+        { m_tiles = new Dictionary<Vector3, GameObject>(); }
 
         /// <summary>
         /// Name of map.
@@ -69,7 +69,7 @@ namespace MonoGame_Tools.MapTools
             XmlDocument xmlDoc = null;
             try
             {
-                m_tiles = new Dictionary<Vector2, GameObject>();
+                m_tiles = new Dictionary<Vector3, GameObject>();
                 xmlDoc = new XmlDocument();
                 string path = string.Format(
                     "{0}/{1}{2}", p_cm.RootDirectory, p_mapFile.Trim(), xmlExtension
