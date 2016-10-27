@@ -9,10 +9,23 @@
         ResizeMode="CanMinimize">
     <Grid>
         <Canvas x:Name="map" SnapsToDevicePixels="False" Height="100" Width="200" MouseLeftButtonDown="OnMouseLeftButtonDown"/>
-        <StackPanel Margin="10,557,1022,33" Orientation="Vertical">
-            <Button Name="LoadButton">Load Map</Button>
+
+        <StackPanel Orientation="Vertical" Margin="10,235,984,366">
+            <Button x:Name="collisionSetButton">Set Collision</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,270,984,134">
+            <TextBlock x:Name="spriteListTextBox" TextWrapping="Wrap" Text="Sprites to insert"/>
+            <ListBox x:Name="spriteListBox"/>
+        </StackPanel>
+
+        <StackPanel Margin="10,512,994,33" Orientation="Vertical">
+            <Button Name="addSpriteButton">Add Sprite</Button>
+            <Button Name="deleteSpriteButton">Delete Sprite</Button>
+            <Button Name="loadButton">Load Map</Button>
             <Button Name="SaveButton">Save Map</Button>
         </StackPanel>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,608,0,0" TextWrapping="Wrap" Text="Current file:" VerticalAlignment="Top" Width="162" BorderThickness="0"/>
+
+        <TextBlock x:Name="currentFileTextBox" HorizontalAlignment="Left" Height="23" Margin="10,608,0,0" TextWrapping="Wrap" Text="Current file:" VerticalAlignment="Top" Width="190"/>
     </Grid>
 </Window>
