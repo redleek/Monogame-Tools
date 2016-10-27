@@ -52,6 +52,7 @@
     <Compile Include="Dialogue\TextureChangeTag.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="MapTools\IMapWindow.cs" />
+    <Compile Include="MapTools\Layer.cs" />
     <Compile Include="MapTools\MapWindow2D.cs" />
     <Compile Include="MapTools\Tile2D.cs" />
     <Compile Include="Program.cs" />
