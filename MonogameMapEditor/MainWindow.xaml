@@ -8,15 +8,31 @@
         Title="Monogame Map Editor" Height="670" Width="1200"
         ResizeMode="CanMinimize">
     <Grid>
-        <Canvas x:Name="map" SnapsToDevicePixels="False" Height="100" Width="200" MouseLeftButtonDown="OnMouseLeftButtonDown"/>
-
+        <StackPanel Orientation="Vertical" Margin="10,10,984,411">
+            <Button x:Name="addLayerButton">Add Layer</Button>
+            <Button x:Name="deleteLayerButton">Delete Layer</Button>
+            <ListView x:Name="layerListView" Height="170">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="layerNameListViewColumn" Header="Name" Width="163" DisplayMemberBinding="{Binding Name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        
         <StackPanel Orientation="Vertical" Margin="10,235,984,366">
             <Button x:Name="collisionSetButton">Set Collision</Button>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Margin="10,270,984,134">
             <TextBlock x:Name="spriteListTextBox" TextWrapping="Wrap" Text="Sprites to insert"/>
-            <ListBox x:Name="spriteListBox"/>
+            <ListView x:Name="spriteListView" Height="210">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="spriteNameListViewColumn" Header="Name" Width="163" DisplayMemberBinding="{Binding Name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
 
         <StackPanel Margin="10,512,994,33" Orientation="Vertical">
@@ -27,5 +43,7 @@
         </StackPanel>
 
         <TextBlock x:Name="currentFileTextBox" HorizontalAlignment="Left" Height="23" Margin="10,608,0,0" TextWrapping="Wrap" Text="Current file:" VerticalAlignment="Top" Width="190"/>
+        
+        <Canvas x:Name="map" SnapsToDevicePixels="False" MouseLeftButtonDown="map_MouseLeftButtonDown" MouseRightButtonDown="map_MouseRightButtonDown" Margin="215,10,10,10"/>
     </Grid>
 </Window>

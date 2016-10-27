@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MonoGame_Tools.MapTools;
 
 namespace MonogameMapEditor
 {
@@ -20,12 +21,51 @@ namespace MonogameMapEditor
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Layer> layerListItems;
+
         public MainWindow()
         {
             InitializeComponent();
-            //DisplayGrid();
         }
 
+        /// <summary>
+        /// Put default values into form items
+        /// </summary>
+        private void InitialiseItems()
+        {
+            // Add default layer item to layer list.
+            layerListItems = new List<Layer>();
+            layerListItems.Add(new Layer() { Name = "Layer 1" });
+            layerListView.ItemsSource = layerListItems;
+        }
+
+        #region Event Handlers
+        private void map_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TransformTile(sender, e);
+        }
+
+        private void map_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void TransformTile(object sender, MouseButtonEventArgs e)
+        {
+            Point pt = e.GetPosition((UIElement)sender);
+            HitTestResult result = VisualTreeHelper.HitTest(map, pt);
+
+            if (result != null)
+            {
+                // Perform action on hit visual object.
+                Rectangle rect = (Rectangle)result.VisualHit;
+                rect.Fill = Brushes.Green;
+            }
+        }
+
+        // TODO: improve formatting and scale it to window
+        /*
         private void DisplayGrid()
         {
             int size = 15;
@@ -51,18 +91,6 @@ namespace MonogameMapEditor
                 top += (size + 1);
             }
         }
-
-        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Point pt = e.GetPosition((UIElement)sender);
-            HitTestResult result = VisualTreeHelper.HitTest(map, pt);
-
-            if (result != null)
-            {
-                // Perform action on hit visual object.
-                Rectangle rect = (Rectangle)result.VisualHit;
-                rect.Fill = Brushes.Green;
-            }
-        }
+        */
     }
 }
