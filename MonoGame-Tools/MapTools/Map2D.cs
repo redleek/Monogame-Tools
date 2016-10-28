@@ -15,21 +15,23 @@ namespace MonoGame_Tools.MapTools
     /// </summary>
     class Map2D : IMap
     {
-        private string m_name;
         private uint m_tileWidth, m_tile_height;
-        private IDictionary<Vector3, Tile2D> m_tiles;
+        private IList<Layer> m_layers;
 
         public Map2D(ContentManager p_cm, string p_mapFile)
         { loadMap(p_cm, p_mapFile); }
 
         public Map2D()
-        { m_tiles = new Dictionary<Vector3, Tile2D>(); }
+        { m_layers = new List<Layer>(); }
 
         /// <summary>
         /// Name of map.
         /// </summary>
         public string Name
-        { get { return m_name; } }
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Width of all tiles
@@ -48,11 +50,15 @@ namespace MonoGame_Tools.MapTools
         /// </summary>
         /// <param name="p_domain"></param>
         /// <returns></returns>
-        public IEnumerable<GameObject> getDomain(object p_domain)
+        public IEnumerable<Layer> getDomain(object p_domain)
         {
-            List<GameObject> domain = new List<GameObject>();
-            throw new NotImplementedException();
-            return domain;
+            // Since multiple layers, get domain from each layer
+            List<Layer> domainLayers = new List<Layer>();
+            foreach (Layer layer in m_layers)
+                domainLayers.Add(
+                    layer.getDomain((Vector2)p_domain)
+                    );
+            return domainLayers;
         }
 
         /// <summary>
@@ -69,7 +75,7 @@ namespace MonoGame_Tools.MapTools
             XmlDocument xmlDoc = null;
             try
             {
-                m_tiles = new Dictionary<Vector3, Tile2D>();
+                m_layers = new List<Layer>(); ;
                 xmlDoc = new XmlDocument();
                 string path = string.Format(
                     "{0}/{1}{2}", p_cm.RootDirectory, p_mapFile.Trim(), xmlExtension
@@ -98,19 +104,18 @@ namespace MonoGame_Tools.MapTools
         /// Draw the entire map
         /// </summary>
         /// <param name="p_sb"></param>
-        public void Draw(SpriteBatch p_sb)
+        public virtual void Draw(SpriteBatch p_sb)
         {
-            foreach (Tile2D tile in m_tiles.Values)
-                tile.Draw(p_sb);
+            foreach (Layer layer in m_layers)
+                layer.Draw(p_sb);
         }
 
         /// <summary>
         /// Draw a chunk of the map.
         /// </summary>
-        public void drawDomain(SpriteBatch p_sb, object p_domain)
+        public virtual void drawDomain(SpriteBatch p_sb, object p_domain)
         {
-            foreach (Tile2D tile in getDomain(p_domain))
-                tile.Draw(p_sb);
+            throw new NotImplementedException();
         }
     }
 }

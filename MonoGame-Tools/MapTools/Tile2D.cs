@@ -10,7 +10,7 @@ namespace MonoGame_Tools.MapTools
     /// <summary>
     /// Tile for a map
     /// </summary>
-    class Tile2D : GameObject
+    public class Tile2D : GameObject
     {
         private bool m_walkable;
 

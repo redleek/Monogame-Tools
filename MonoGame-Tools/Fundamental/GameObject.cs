@@ -42,6 +42,13 @@ namespace MonoGame_Tools
         }
 
         /// <summary>
+        /// Load sprite from pre-loaded Texture2D
+        /// </summary>
+        /// <param name="p_sprite">Origional sprite source</param>
+        public void LoadSprite(Texture2D p_sprite)
+        { m_sprite = p_sprite; }
+
+        /// <summary>
         /// Get the current sprite being used.
         /// </summary>
         public Texture2D Sprite

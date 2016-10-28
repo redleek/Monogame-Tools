@@ -7,12 +7,12 @@ using System.Text;
 
 namespace MonoGame_Tools.Utils
 {
-    public class TextureCache
+    public class TextureCache<T>
     {
-        Dictionary<string, Texture2D> m_textures;
+        Dictionary<string, T> m_textures;
         ContentManager m_content;
 
-        public Texture2D this[string index]
+        public T this[string index]
         {
             get
             {
@@ -20,12 +20,11 @@ namespace MonoGame_Tools.Utils
                 {
                     try
                     {
-                        Texture2D content = m_content.Load<Texture2D>(index);
+                        T content = m_content.Load<T>(index);
                         m_textures.Add(index, content);
                     }
                     catch (ContentLoadException)
                     {
-                        m_textures.Add(index, null);
                         Logger.LogMessage(LogMessageType.Warning, "Cannot load content \"{0}\", setting to null", index);
                     }
                 }
@@ -36,18 +35,19 @@ namespace MonoGame_Tools.Utils
 
         public TextureCache(ContentManager content)
         {
-            m_textures = new Dictionary<string, Texture2D>();
+            m_textures = new Dictionary<string, T>();
             m_content = content;
+        }
+
+        public void Load(string p_contentName)
+        {
+            T newTexture = m_content.Load<T>(p_contentName);
+            m_textures.Add(p_contentName, newTexture);
         }
 
         public void Unload(string index)
         {
-            if (m_textures.ContainsKey(index))
-            {
-                Texture2D texture = m_textures[index];
-                texture.Dispose();
-                m_textures.Remove(index);
-            }
+            m_content.Unload();
         }
     }
 }

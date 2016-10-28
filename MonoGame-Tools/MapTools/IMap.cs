@@ -13,7 +13,7 @@ namespace MonoGame_Tools.MapTools
         bool loadMap(ContentManager p_cm, string p_mapFile);
         string Name
         { get; }
-        IEnumerable<GameObject> getDomain(object p_domain);
+        IEnumerable<Layer> getDomain(object p_domain);
         void Draw(SpriteBatch p_sb);
         void drawDomain(SpriteBatch p_sb, object p_domain);
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MonoGame_Tools.Utils
 {
-    public static class Global
+    public static class Global<T>
     {
-        public static TextureCache Textures;
+        public static TextureCache<T> Textures;
     }
 }

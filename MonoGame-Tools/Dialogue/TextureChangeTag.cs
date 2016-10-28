@@ -34,7 +34,7 @@ namespace MonoGame_Tools.Dialogue
             if (TextureName == null)
                 return null;
             else
-                return Global.Textures[TextureName];
+                return Global<Texture2D>.Textures[TextureName];
         }
     }
 

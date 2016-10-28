@@ -35,7 +35,8 @@ namespace MonogameMapEditor
         {
             // Add default layer item to layer list.
             layerListItems = new List<Layer>();
-            layerListItems.Add(new Layer() { Name = "Layer 1" });
+            const string defaultLayerName = "Layer 1";
+            layerListItems.Add(new Layer(defaultLayerName));
             layerListView.ItemsSource = layerListItems;
         }
 
