@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\test.xml" />
     <Content Include="Content\testTextPanel.png" />
     <Content Include="Icon.ico" />
     <Content Include="test.xml" />

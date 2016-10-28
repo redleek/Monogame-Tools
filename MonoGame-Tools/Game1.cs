@@ -18,6 +18,7 @@ namespace MonoGame_Tools
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
+        
         SpriteBatch spriteBatch;
 
         SpriteFont uiFont;
@@ -59,7 +60,7 @@ namespace MonoGame_Tools
             scriptContext.RegisterVariable("player", player);
 
             XmlDocument doc = new XmlDocument();
-            doc.Load("test.xml");
+            doc.Load(@"Content\test.xml");
             scene = DialogueScene.ReadFromXML(doc["scene"], scriptContext);
 
             base.Initialize();
