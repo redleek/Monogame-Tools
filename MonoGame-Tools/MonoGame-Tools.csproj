@@ -41,9 +41,12 @@
     <StartupObject>MonoGame_Tools.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Character\Character.cs" />
-    <Compile Include="Character\CharacterController.cs" />
+    <Compile Include="CharacterLogic\Character.cs" />
+    <Compile Include="CharacterLogic\CharacterController.cs" />
     <Compile Include="Fundamental\Constants.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemLogic.cs" />
+    <Compile Include="Modifier.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoice.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoiceCollection.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueCommand.cs" />
@@ -70,7 +73,7 @@
     <Compile Include="OLD-LIBRARY\Scripting\ScriptingTools.cs" />
     <Compile Include="OLD-LIBRARY\Utils\AttributeCollection.cs" />
     <Compile Include="OLD-LIBRARY\Utils\Global.cs" />
-    <Compile Include="OLD-LIBRARY\Utils\Logger.cs" />
+    <Compile Include="Fundamental\Logger.cs" />
     <Compile Include="OLD-LIBRARY\Scripting\LuaContext.cs" />
     <Compile Include="OLD-LIBRARY\Utils\TextureCache.cs" />
     <Compile Include="OLD-LIBRARY\Utils\XmlSerializationExt.cs" />

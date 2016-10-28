@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MonoGame_Tools.Character;
+using MonoGame_Tools.CharacterLogic;
 using MonoGame_Tools.Fundamental;
+using Microsoft.Xna.Framework.Graphics;
 
-namespace MonoGame_Tools.Character
+namespace MonoGame_Tools.CharacterLogic
 {
     public class CharacterController
     {
@@ -58,6 +59,51 @@ namespace MonoGame_Tools.Character
             AllCharacters.Remove(oldCharacter);
         }
 
+        public void selectCharacter(Character Target)
+        {
+            foreach(Character c in AllCharacters)
+            {
+                if (c == Target)
+                {
+                    c.Selected = true;
+                }
+                else
+                {
+                    c.Selected = false;
+                }
+            }
+        }
 
+        public Boolean isCharacterAt(int x, int y)
+        {
+            foreach(Character c in AllCharacters)
+            {
+                if ((int)c.Location.X == x && (int)c.Location.Y == y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void moveCharacter(Character character, int x, int y)
+        {
+            foreach(Character c in AllCharacters)
+            {
+                if (character == c)
+                {
+                    //c.moveToLocation needs to be implemented here.
+                    break;
+                }
+            }
+        }
+
+        public void Draw(SpriteBatch SP)
+        {
+            foreach (Character c in AllCharacters)
+            {
+                c.Draw(SP);
+            }
+        }
     }
 }
