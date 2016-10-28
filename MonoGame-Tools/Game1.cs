@@ -21,18 +21,18 @@ namespace MonoGame_Tools
         
         SpriteBatch spriteBatch;
 
-        SpriteFont uiFont;
-        KeyboardState prevState;
+        //SpriteFont uiFont;
+        //KeyboardState prevState;
 
-        LuaContext scriptContext;
+        //LuaContext scriptContext;
 
-        NPC player;
+        //NPC player;
 
-        DialogueScene scene;
+        //DialogueScene scene;
 
-        Rectangle screenBounds = new Rectangle(0, 0, 800, 480);
+        //Rectangle screenBounds = new Rectangle(0, 0, 800, 480);
 
-        Rectangle[] choices = new Rectangle[0];
+        //Rectangle[] choices = new Rectangle[0];
         //GameObject person;
 
         
@@ -53,15 +53,15 @@ namespace MonoGame_Tools
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            player = new NPC();
-            player.Name = "Player";
+            //player = new NPC();
+            //player.Name = "Player";
 
-            scriptContext = new LuaContext();
-            scriptContext.RegisterVariable("player", player);
+            //scriptContext = new LuaContext();
+            //scriptContext.RegisterVariable("player", player);
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(@"Content\test.xml");
-            scene = DialogueScene.ReadFromXML(doc["scene"], scriptContext);
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(@"Content\test.xml");
+            //scene = DialogueScene.ReadFromXML(doc["scene"], scriptContext);
 
             base.Initialize();
         }
@@ -75,11 +75,11 @@ namespace MonoGame_Tools
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Global.Textures = new TextureCache(Content);
+            //Global.Textures = new TextureCache(Content);
 
-            uiFont = Content.Load<SpriteFont>("uiFont");
+            //uiFont = Content.Load<SpriteFont>("uiFont");
 
-            scene.GotoFirst();
+            //scene.GotoFirst();
 
             // TODO: use this.Content to load your game content here
         }
@@ -108,18 +108,18 @@ namespace MonoGame_Tools
 
 
 
-            if (keyState.IsKeyDown(Keys.Space) && prevState.IsKeyUp(Keys.Space))
-            {
-                scene.MoveNext();
+            //if (keyState.IsKeyDown(Keys.Space) && prevState.IsKeyUp(Keys.Space))
+            //{
+            //    scene.MoveNext();
 
-            }
+            //}
 
             MouseState state = Mouse.GetState();
 
             //Something Something code.
             //About mouse and choice for Dialogue UI
 
-            prevState = keyState;
+            //prevState = keyState;
 
             // TODO: Add your update logic here
             base.Update(gameTime);
@@ -135,18 +135,18 @@ namespace MonoGame_Tools
 
             spriteBatch.Begin();
 
-            scene.Render(spriteBatch, uiFont);
+            //scene.Render(spriteBatch, uiFont);
 
-            int numChoices = scene.CurrentChoices.Length;
-            choices = new Rectangle[numChoices];
+            //int numChoices = scene.CurrentChoices.Length;
+            //choices = new Rectangle[numChoices];
 
-            for (int index = 0; index < numChoices; index++)
-            {
-                DialogueChoice choice = scene.CurrentChoices[index];
-                string text = choice.GetMessage(scriptContext);
-                spriteBatch.DrawString(uiFont, text, new Vector2(index * 100, 380), Color.Black);
-                choices[index] = new Rectangle(index * 100, 380, (int)uiFont.MeasureString(text).X, (int)uiFont.MeasureString(text).Y);
-            }
+            //for (int index = 0; index < numChoices; index++)
+            //{
+            //    DialogueChoice choice = scene.CurrentChoices[index];
+            //    string text = choice.GetMessage(scriptContext);
+            //    spriteBatch.DrawString(uiFont, text, new Vector2(index * 100, 380), Color.Black);
+            //    choices[index] = new Rectangle(index * 100, 380, (int)uiFont.MeasureString(text).X, (int)uiFont.MeasureString(text).Y);
+            //}
 
             spriteBatch.End();
 
