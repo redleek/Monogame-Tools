@@ -44,6 +44,9 @@
     <Compile Include="CharacterLogic\Character.cs" />
     <Compile Include="CharacterLogic\CharacterController.cs" />
     <Compile Include="CharacterLogic\CharacterMenu.cs" />
+    <Compile Include="Conversation\Conversation.cs" />
+    <Compile Include="Conversation\TextBox.cs" />
+    <Compile Include="Conversation\TextFormatting.cs" />
     <Compile Include="Fundamental\Constants.cs" />
     <Compile Include="Fundamental\InputMethods.cs" />
     <Compile Include="Items\Item.cs" />
@@ -106,9 +109,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Conversation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <PropertyGroup>
