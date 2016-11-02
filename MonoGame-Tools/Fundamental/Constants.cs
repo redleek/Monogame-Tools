@@ -23,5 +23,8 @@ namespace MonoGame_Tools.Fundamental
         public static int CharacterMenuHeight = 32;
         public static int CharacterMenuWidth = 130;
         public static int InvSize = 10;
+
+        // THIS VALUE IS NOT FINAL DON'T USE IT REPLACE IT WITH YOUR CALCULATION.
+        public static float MapSquareSize { get; internal set; }
     }
 }

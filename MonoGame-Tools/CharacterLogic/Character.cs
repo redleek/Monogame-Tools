@@ -52,5 +52,56 @@ namespace MonoGame_Tools.CharacterLogic
             HasAction = true;
 
         }
+
+        public void moveToLocation(int x, int y)
+        {
+            Location = new Vector2(x, y);
+        }
+
+        public string listInventory()
+        {
+            string invString = "";
+            foreach (Item i in Items)
+            {
+                invString += (i.name + " \n");
+            }
+            return invString;
+        }
+
+        public string listEquippedItems()
+        {
+            string invString = "";
+            foreach (Item I in Items)
+            {
+                if (I.isEquipped)
+                {
+                    invString += (I.name + " \n");
+                }
+            }
+            return invString;
+        }
+
+        public void useItem(int IndexOfItem)
+        {
+            ItemLogic.useItem(this, Items.ElementAt(IndexOfItem));
+        }
+
+        public List<Item> getEquipedItems()
+        {
+            List<Item> equipped = new List<Item>();
+            foreach (Item I in Items)
+            {
+                if (I.isEquipped)
+                {
+                    equipped.Add(I);
+                }
+            }
+            return equipped;
+        }
+
+        public void Draw(SpriteBatch SP)
+        {
+            SP.Draw(AnimationStill.FirstOrDefault(), new Vector2(Location.X * Constants.MapSquareSize, Location.Y * Constants.MapSquareSize), Color.White);
+        }
     }
 }
