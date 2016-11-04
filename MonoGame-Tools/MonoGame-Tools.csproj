@@ -53,6 +53,7 @@
     <Compile Include="Fundamental\SituationController.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ItemLogic.cs" />
+    <Compile Include="MapController.cs" />
     <Compile Include="Modifier.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoice.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoiceCollection.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="OLD-LIBRARY\Scripting\LuaContext.cs" />
     <Compile Include="OLD-LIBRARY\Utils\TextureCache.cs" />
     <Compile Include="OLD-LIBRARY\Utils\XmlSerializationExt.cs" />
+    <Compile Include="TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="KeraLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=04d04586786c6f34, processorArchitecture=MSIL">
