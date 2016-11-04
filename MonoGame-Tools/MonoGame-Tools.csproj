@@ -41,15 +41,29 @@
     <StartupObject>MonoGame_Tools.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Dialogue\DialogueChoice.cs" />
-    <Compile Include="Dialogue\DialogueChoiceCollection.cs" />
-    <Compile Include="Dialogue\DialogueCommand.cs" />
-    <Compile Include="Dialogue\DialogueOutput.cs" />
-    <Compile Include="Dialogue\DialogueOutputCollection.cs" />
-    <Compile Include="Dialogue\DialogueScene.cs" />
-    <Compile Include="Dialogue\RectangleF.cs" />
-    <Compile Include="Dialogue\TextureChangeCollection.cs" />
-    <Compile Include="Dialogue\TextureChangeTag.cs" />
+    <Compile Include="CharacterLogic\Character.cs" />
+    <Compile Include="CharacterLogic\CharacterController.cs" />
+    <Compile Include="CharacterLogic\CharacterMenu.cs" />
+    <Compile Include="Conversation\Conversation.cs" />
+    <Compile Include="Conversation\ConversationController.cs" />
+    <Compile Include="Conversation\TextBox.cs" />
+    <Compile Include="Conversation\TextFormatting.cs" />
+    <Compile Include="Fundamental\Constants.cs" />
+    <Compile Include="Fundamental\InputMethods.cs" />
+    <Compile Include="Fundamental\SituationController.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemLogic.cs" />
+    <Compile Include="MapController.cs" />
+    <Compile Include="Modifier.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoice.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoiceCollection.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\DialogueCommand.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\DialogueOutput.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\DialogueOutputCollection.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\DialogueScene.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\RectangleF.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\TextureChangeCollection.cs" />
+    <Compile Include="OLD-LIBRARY\Dialogue\TextureChangeTag.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="MapTools\IMapWindow.cs" />
     <Compile Include="MapTools\MapWindow2D.cs" />
@@ -59,18 +73,19 @@
     <Compile Include="MapTools\IMap.cs" />
     <Compile Include="MapTools\Map2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scripting\Entity.cs" />
-    <Compile Include="Scripting\Item.cs" />
-    <Compile Include="Scripting\ItemCollection.cs" />
-    <Compile Include="Scripting\Items.cs" />
-    <Compile Include="Scripting\NPC.cs" />
-    <Compile Include="Scripting\ScriptingTools.cs" />
-    <Compile Include="Utils\AttributeCollection.cs" />
-    <Compile Include="Utils\Global.cs" />
-    <Compile Include="Utils\Logger.cs" />
-    <Compile Include="Scripting\LuaContext.cs" />
-    <Compile Include="Utils\TextureCache.cs" />
-    <Compile Include="Utils\XmlSerializationExt.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\Entity.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\Item.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\ItemCollection.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\Items.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\NPC.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\ScriptingTools.cs" />
+    <Compile Include="OLD-LIBRARY\Utils\AttributeCollection.cs" />
+    <Compile Include="OLD-LIBRARY\Utils\Global.cs" />
+    <Compile Include="Fundamental\Logger.cs" />
+    <Compile Include="OLD-LIBRARY\Scripting\LuaContext.cs" />
+    <Compile Include="OLD-LIBRARY\Utils\TextureCache.cs" />
+    <Compile Include="OLD-LIBRARY\Utils\XmlSerializationExt.cs" />
+    <Compile Include="TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="KeraLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=04d04586786c6f34, processorArchitecture=MSIL">
@@ -88,7 +103,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\test.xml" />
     <Content Include="Content\testTextPanel.png" />
     <Content Include="Icon.ico" />
     <Content Include="test.xml" />

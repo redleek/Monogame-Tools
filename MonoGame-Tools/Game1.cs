@@ -9,6 +9,8 @@ using System.Xml.Serialization;
 using MonoGame_Tools.Dialogue;
 using MonoGame_Tools.Scripting;
 using MonoGame_Tools.Utils;
+using MonoGame_Tools.Conversation;
+using MonoGame_Tools.CharacterLogic;
 
 namespace MonoGame_Tools
 {
@@ -17,25 +19,31 @@ namespace MonoGame_Tools
     /// </summary>
     public class Game1 : Game
     {
+        Boolean IsDisplayingMoveRange;
         GraphicsDeviceManager graphics;
-        
         SpriteBatch spriteBatch;
+        SpriteFont Segoe14;
+        TextBox newTextBox;
+        TextBox newTextBox2;
+        Texture2D Test2D;
+        Conversation testConv;
+        ConversationController conversationController;
+        KeyboardState oldKeyboard;
+        KeyboardState newKeyboard;
+        MouseState OldMouse;
+        MouseState NewMouse;
+        Vector2 MouseLocation;
+        Texture2D Yellow;
+        Texture2D Blue;
+        List<Texture2D> LandTextures;
+        List<Character> PlayerCharacters;
+        List<Character> EnemyCharacters;
+        List<Character> NuetralCharacters;
+        CharacterController characterController;
+        SituationController situationController;
+        CharacterMenu CharacterMenu;
+        Character Trader;
 
-        SpriteFont uiFont;
-        KeyboardState prevState;
-
-        LuaContext scriptContext;
-
-        NPC player;
-
-        DialogueScene scene;
-
-        Rectangle screenBounds = new Rectangle(0, 0, 800, 480);
-
-        Rectangle[] choices = new Rectangle[0];
-        //GameObject person;
-
-        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,15 +61,15 @@ namespace MonoGame_Tools
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            player = new NPC();
-            player.Name = "Player";
+            //player = new NPC();
+            //player.Name = "Player";
 
-            scriptContext = new LuaContext();
-            scriptContext.RegisterVariable("player", player);
+            //scriptContext = new LuaContext();
+            //scriptContext.RegisterVariable("player", player);
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(@"Content\test.xml");
-            scene = DialogueScene.ReadFromXML(doc["scene"], scriptContext);
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(@"Content\test.xml");
+            //scene = DialogueScene.ReadFromXML(doc["scene"], scriptContext);
 
             base.Initialize();
         }
@@ -75,11 +83,11 @@ namespace MonoGame_Tools
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Global.Textures = new TextureCache(Content);
+            //Global.Textures = new TextureCache(Content);
 
-            uiFont = Content.Load<SpriteFont>("uiFont");
+            //uiFont = Content.Load<SpriteFont>("uiFont");
 
-            scene.GotoFirst();
+            //scene.GotoFirst();
 
             // TODO: use this.Content to load your game content here
         }
@@ -108,18 +116,18 @@ namespace MonoGame_Tools
 
 
 
-            if (keyState.IsKeyDown(Keys.Space) && prevState.IsKeyUp(Keys.Space))
-            {
-                scene.MoveNext();
+            //if (keyState.IsKeyDown(Keys.Space) && prevState.IsKeyUp(Keys.Space))
+            //{
+            //    scene.MoveNext();
 
-            }
+            //}
 
             MouseState state = Mouse.GetState();
 
             //Something Something code.
             //About mouse and choice for Dialogue UI
 
-            prevState = keyState;
+            //prevState = keyState;
 
             // TODO: Add your update logic here
             base.Update(gameTime);
@@ -135,18 +143,18 @@ namespace MonoGame_Tools
 
             spriteBatch.Begin();
 
-            scene.Render(spriteBatch, uiFont);
+            //scene.Render(spriteBatch, uiFont);
 
-            int numChoices = scene.CurrentChoices.Length;
-            choices = new Rectangle[numChoices];
+            //int numChoices = scene.CurrentChoices.Length;
+            //choices = new Rectangle[numChoices];
 
-            for (int index = 0; index < numChoices; index++)
-            {
-                DialogueChoice choice = scene.CurrentChoices[index];
-                string text = choice.GetMessage(scriptContext);
-                spriteBatch.DrawString(uiFont, text, new Vector2(index * 100, 380), Color.Black);
-                choices[index] = new Rectangle(index * 100, 380, (int)uiFont.MeasureString(text).X, (int)uiFont.MeasureString(text).Y);
-            }
+            //for (int index = 0; index < numChoices; index++)
+            //{
+            //    DialogueChoice choice = scene.CurrentChoices[index];
+            //    string text = choice.GetMessage(scriptContext);
+            //    spriteBatch.DrawString(uiFont, text, new Vector2(index * 100, 380), Color.Black);
+            //    choices[index] = new Rectangle(index * 100, 380, (int)uiFont.MeasureString(text).X, (int)uiFont.MeasureString(text).Y);
+            //}
 
             spriteBatch.End();
 
