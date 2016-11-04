@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding ="utf-8"?>
-<scene name="IntroScene">
-  <dialogues>
-    <dialog id="0" speaker="0" nextId="1">
-      <message>Hello %player.Name%, You have entered the Three Thing Game Test Panel.</message>
-    </dialog>
-  </dialogues>
-</scene>

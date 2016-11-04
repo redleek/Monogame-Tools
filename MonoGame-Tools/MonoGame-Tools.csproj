@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{DD8C7469-B588-4614-B645-E50D28C37B12}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MonoGame_Tools</RootNamespace>
     <AssemblyName>MonoGame-Tools</AssemblyName>
@@ -38,7 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>MonoGame_Tools.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CharacterLogic\Character.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="Fundamental\SituationController.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ItemLogic.cs" />
-    <Compile Include="MapController.cs" />
     <Compile Include="Modifier.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoice.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\DialogueChoiceCollection.cs" />
@@ -64,11 +64,9 @@
     <Compile Include="OLD-LIBRARY\Dialogue\RectangleF.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\TextureChangeCollection.cs" />
     <Compile Include="OLD-LIBRARY\Dialogue\TextureChangeTag.cs" />
-    <Compile Include="Game1.cs" />
     <Compile Include="MapTools\IMapWindow.cs" />
     <Compile Include="MapTools\MapWindow2D.cs" />
     <Compile Include="MapTools\Tile2D.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Fundamental\GameObject.cs" />
     <Compile Include="MapTools\IMap.cs" />
     <Compile Include="MapTools\Map2D.cs" />
@@ -105,7 +103,6 @@
   <ItemGroup>
     <Content Include="Content\testTextPanel.png" />
     <Content Include="Icon.ico" />
-    <Content Include="test.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

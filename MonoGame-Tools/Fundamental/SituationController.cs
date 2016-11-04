@@ -49,66 +49,66 @@ namespace MonoGame_Tools.Fundamental
 
 
 
-        public void inputLogic(MapController mapController, CharacterController characterController, ConversationController conversationController, ContentManager Content, SpriteBatch SP)
-        {
-            switch (CurrentSituation) //honestly I need work on this section (it's just a bunch of hazardouse ifs right now)
-            {
-                case 0:
-                    /*if (conversationController.Conversations[conversationController.CurrentConversationIndex].InConversation == false && conversationController.Conversations[conversationController.CurrentConversationIndex].ConversationCompleted == false)
-                    {
-                        conversationController.startConv("test1");
-                        AllowCharacterMovement = false;
-                    }
-                    if (conversationController.Conversations[conversationController.CurrentConversationIndex].ConvName == "Victory" && conversationController.Conversations[conversationController.CurrentConversationIndex].ConversationCompleted)
-                    {
-                        CurrentSituation++;
-                        break;
-                    }
-                    if (!conversationController.Conversations[conversationController.CurrentConversationIndex].ConversationCompleted)
-                    {
-                        conversationController.Input();
-                    }
-                    if (conversationController.Conversations[conversationController.CurrentConversationIndex].InConversation == false && mapController.getCurrentMap().IsMapStarted == false)
-                    {
-                        mapController.StartMap("Herbert");
-                        AllowCharacterMovement = true;
-                    }
-                    if (characterController.getCharactersOfController((int)Constants.CharacterController.Enemy).Count == 0) //all enemy characters killed
-                    {
-                        //The match is over?
-                        CurrentTurn = 0;
-                        CurrentTurn += 1;
-                        mapController.EndMap();
-                        conversationController.startConv("Victory");
-                    }
-                    */
-                    //if ()
+        //public void inputLogic(MapController mapController, CharacterController characterController, ConversationController conversationController, ContentManager Content, SpriteBatch SP)
+        //{
+        //    switch (CurrentSituation) //honestly I need work on this section (it's just a bunch of hazardouse ifs right now)
+        //    {
+        //        case 0:
+        //            /*if (conversationController.Conversations[conversationController.CurrentConversationIndex].InConversation == false && conversationController.Conversations[conversationController.CurrentConversationIndex].ConversationCompleted == false)
+        //            {
+        //                conversationController.startConv("test1");
+        //                AllowCharacterMovement = false;
+        //            }
+        //            if (conversationController.Conversations[conversationController.CurrentConversationIndex].ConvName == "Victory" && conversationController.Conversations[conversationController.CurrentConversationIndex].ConversationCompleted)
+        //            {
+        //                CurrentSituation++;
+        //                break;
+        //            }
+        //            if (!conversationController.Conversations[conversationController.CurrentConversationIndex].ConversationCompleted)
+        //            {
+        //                conversationController.Input();
+        //            }
+        //            if (conversationController.Conversations[conversationController.CurrentConversationIndex].InConversation == false && mapController.getCurrentMap().IsMapStarted == false)
+        //            {
+        //                mapController.StartMap("Herbert");
+        //                AllowCharacterMovement = true;
+        //            }
+        //            if (characterController.getCharactersOfController((int)Constants.CharacterController.Enemy).Count == 0) //all enemy characters killed
+        //            {
+        //                //The match is over?
+        //                CurrentTurn = 0;
+        //                CurrentTurn += 1;
+        //                mapController.EndMap();
+        //                conversationController.startConv("Victory");
+        //            }
+        //            */
+        //            //if ()
 
-                    conversationController.startConvIfNotStarted("test1");
-                    if (conversationController.Conversations[conversationController.CurrentConversationIndex].InConversation == true)
-                    {
-                        AllowCharacterMovement = false;
-                        conversationController.Input();
-                    }
-                    else
-                    {
-                        AllowCharacterMovement = true;
-                        mapController.StartMapIfNotStarted("Herbert");
+        //            conversationController.startConvIfNotStarted("test1");
+        //            if (conversationController.Conversations[conversationController.CurrentConversationIndex].InConversation == true)
+        //            {
+        //                AllowCharacterMovement = false;
+        //                conversationController.Input();
+        //            }
+        //            else
+        //            {
+        //                AllowCharacterMovement = true;
+        //                mapController.StartMapIfNotStarted("Herbert");
 
-                        if (characterController.getCharactersOfController((int)Constants.CharacterControllerType.Enemy).Count == 0)
-                        {
-                            CurrentTurn = 0;
-                            mapController.EndMap("Herbert");
-                            conversationController.startConvIfNotStarted("Victory");
-                        }
+        //                if (characterController.getCharacterOfController((int)Constants.CharacterControllerType.Enemy).Count == 0)
+        //                {
+        //                    CurrentTurn = 0;
+        //                    mapController.EndMap("Herbert");
+        //                    conversationController.startConvIfNotStarted("Victory");
+        //                }
 
-                    }
+        //            }
 
-                    break;
-                default:
-                    break;
-            }
-        }
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
 
         //public void Draw(SpriteBatch SP, ConversationController CC, CharacterController ChC, MapController MC, List<Texture2D> LandTiles)
         //{
